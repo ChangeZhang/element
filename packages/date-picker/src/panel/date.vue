@@ -1,5 +1,5 @@
 <template>
-  <transition name="el-zoom-in-top" @after-leave="afterLeave">
+  <transition name="el-zoom-in-top" @after-leave="$emit('dodestroy')">
     <div
       v-show="visible"
       :style="{
@@ -342,11 +342,6 @@
           this.year = this.date.getFullYear();
           this.month = this.date.getMonth();
         }
-      },
-
-      afterLeave() {
-        this.$refs.timepicker.handleConfirm();
-        this.$emit('dodestroy');
       }
     },
 
